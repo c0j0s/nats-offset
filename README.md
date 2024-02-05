@@ -3,8 +3,8 @@ A collection of tools for interacting with NATS Server in a development environm
 
 The docker-compose starts the following services:
 - A nats client webui for sending messages to NATS.
-- A nats web-ui for visualising NATS server status and messages. (credits @sphqxe)
-- A local instance of NATS service.
+- A nats web-ui for visualising NATS server status and messages. (credits @sphqxe/nats-webui)
+- A local instance of the official NATS server.
 
 Access the webui at [http://localhost:3001/](http://localhost:3001/)
 
