@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  nats:
+    image: nats:alpine
+    ports:
+      - 4222:4222
+      - 6222:6222
+      - 8222:8222
+
+  nats-webui:
+    container_name: webui
+    image: sphqxe/nats-webui:latest
+    ports:
+      - 3000:80
+
+  nats-client:
+    container_name: client
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3001:3000
