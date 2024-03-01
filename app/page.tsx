@@ -20,7 +20,12 @@ export default function Home() {
       servers: server
     });
 
-    setLoading(!status);
+    if (status) {
+      alert("Server connected");
+      setLoading(!status);
+    } else {
+      alert("Unable to connect to NATS");
+    }
   }
 
   return (
@@ -31,9 +36,7 @@ export default function Home() {
             <h3>Server</h3>
             <div className="flex flex-col gap-2">
               <input name="server" className="p-1" type="text" placeholder="server" value={server} onChange={e => setServer(e.currentTarget.value)} />
-              {(loading) &&
-                <button className="p-1 hover:bg-violet-600" onClick={connect}>Connect</button>
-              }
+              <button className="p-1 hover:bg-violet-600" onClick={connect}>Connect</button>
             </div>
           </div>
           {(!loading) &&
@@ -48,7 +51,7 @@ export default function Home() {
           }
         </div>
         <div className="basis-3/4">
-          <iframe src="http://localhost:3000/" className="h-full w-full"></iframe>
+          <iframe src="http://localhost:3002/" className="h-full w-full"></iframe>
         </div>
       </div>
     </main>

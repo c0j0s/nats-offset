@@ -7,11 +7,16 @@ import { NatsConnection, connect, JSONCodec } from "nats";
 let nc: NatsConnection;
 
 export async function setup(v: any) {
-  nc = await connect(v);
-  console.log(`connected to ${nc.getServer()}`);
-  if (nc) {
-    return true;
+  try {
+    nc = await connect(v);
+    console.log(`connected to ${nc.getServer()}`);
+    if (nc) {
+      return true;
+    }
+  } catch (error) {
+    console.log(v, error);
   }
+
   return false;
 }
 
